@@ -1,36 +1,31 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Travel App 🌎
 
-## Getting Started
+## Descripción
+Una aplicación web moderna de viajes construida con Next.js, React y diseñada para ofrecer una experiencia de usuario excepcional. Esta aplicación utiliza las últimas tecnologías web para proporcionar una interfaz fluida y responsive.
 
-First, run the development server:
+## Tecnologías Utilizadas 🛠️
+- **Next.js 15.1.7** - Framework de React para producción
+- **React 19** - Biblioteca para interfaces de usuario
+- **AOS** - Biblioteca para animaciones al hacer scroll
+- **React Icons** - Conjunto de iconos para React
+- **TurboPack** - Empaquetador web optimizado para Next.js
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Requisitos Previos 📋
+- Node.js (versión recomendada: 18.x o superior)
+- npm o yarn
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Instalación 🚀
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Estructura del Proyecto 📁
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Características ✨
+- Diseño moderno y responsive
+- Animaciones suaves al hacer scroll
+- Optimización de rendimiento con TurboPack
+- Estructura de código organizada y mantenible
 
-## Learn More
+## Licencia 📄
+Este proyecto es privado y está protegido por derechos de autor.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+Desarrollado con ❤️ usando Next.js y React
