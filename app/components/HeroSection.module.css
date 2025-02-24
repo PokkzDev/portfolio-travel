@@ -1,0 +1,312 @@
+.hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.backgroundWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.backgroundImage > span {
+  position: unset !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.backgroundImage img {
+  object-fit: cover !important;
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.titleWrapper {
+  position: relative;
+  height: 8rem;
+  margin-bottom: 1rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 8rem;
+  font-weight: 700;
+  letter-spacing: 1rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.titleOverlay {
+  z-index: 1;
+}
+
+.fadeIn {
+  animation: fadeIn 1.5s forwards;
+  opacity: 0;
+}
+
+.fadeOut {
+  animation: fadeOut 1.5s forwards;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.subtitleWrapper {
+  position: relative;
+  height: 2rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  margin: 0;
+  opacity: 0.9;
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.subtitleOverlay {
+  z-index: 1;
+}
+
+.destinations {
+  display: flex;
+  gap: 2rem;
+  margin-top: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.destinationButton {
+  background: rgba(0, 0, 0, 0.6);
+  border: none;
+  padding: 1rem 2rem;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  min-width: 200px;
+}
+
+.destinationButton:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: translateY(-2px);
+}
+
+.destinationButton span:first-child {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.destinationButton span:last-child {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.dots {
+  position: absolute;
+  right: 5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 10;
+}
+
+.dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.activeDot {
+  background: white;
+  transform: scale(1.2);
+}
+
+.socialMedia {
+  position: absolute;
+  left: 5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  z-index: 10;
+}
+
+.socialIcon {
+  color: white;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.socialIcon:hover {
+  color: #ccc;
+}
+
+.loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000;
+  color: white;
+  font-size: 1.5rem;
+  z-index: 10;
+}
+
+@media (max-width: 1400px) {
+  .dots {
+    right: 3rem;
+  }
+
+  .socialMedia {
+    left: 3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 6rem;
+    letter-spacing: 0.5rem;
+  }
+
+  .dots {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .socialMedia {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .destinationButton {
+    min-width: 160px;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .titleWrapper {
+    height: 4rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .destinations {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .destinationButton {
+    width: 100%;
+    max-width: 300px;
+  }
+} 

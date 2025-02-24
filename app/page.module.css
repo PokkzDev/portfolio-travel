@@ -15,10 +15,9 @@
 
 .main {
   min-height: 100vh;
-  position: relative;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  background-color: #000;
 }
 
 .backgroundWrapper {
@@ -115,6 +114,9 @@
   color: white;
   padding: 2rem;
   text-align: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .subtitleWrapper {
@@ -147,6 +149,8 @@
   display: flex;
   gap: 2rem;
   margin-top: 4rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .destinationButton {
@@ -179,13 +183,14 @@
 }
 
 .dots {
-  position: absolute;
-  right: 10rem;
+  position: fixed;
+  right: 5rem;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  z-index: 10;
 }
 
 .dot {
@@ -203,13 +208,14 @@
 }
 
 .socialMedia {
-  position: absolute;
-  left: 10rem;
+  position: fixed;
+  left: 5rem;
   top: 50%;
   transform: translateY(-50%);
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  z-index: 10;
 }
 
 .socialIcon {
@@ -232,4 +238,82 @@
   color: white;
   font-size: 1.5rem;
   z-index: 10;
+}
+
+@media (max-width: 1400px) {
+  .dots {
+    right: 3rem;
+  }
+
+  .socialMedia {
+    left: 3rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 6rem;
+    letter-spacing: 0.5rem;
+  }
+
+  .dots {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .socialMedia {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 4rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .destinationButton {
+    min-width: 160px;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .title {
+    font-size: 3rem;
+    letter-spacing: 0.3rem;
+  }
+
+  .titleWrapper {
+    height: 4rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    letter-spacing: 0.2rem;
+  }
+
+  .destinations {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .destinationButton {
+    width: 100%;
+    max-width: 300px;
+  }
 }
