@@ -46,6 +46,7 @@ const Footer = () => {
       
       <div className={styles.footerBottom}>
         <p>&copy; 2024 Tu Empresa de Viajes. Todos los derechos reservados.</p>
+        <p className={styles.attribution}>Desarrollado por <a href="https://pokkz.dev" target="_blank" rel="noopener noreferrer">pokkz.dev</a></p>
       </div>
     </footer>
   );
