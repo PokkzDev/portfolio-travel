@@ -6,6 +6,7 @@ import Nosotros from './components/Nosotros';
 import Tours from './components/Tours';
 import styles from './page.module.css';
 import Contact from './components/Contact';
+import Footer from './components/Footer';
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
       <Nosotros />
       <Tours />
       <Contact />
+      <Footer />
     </main>
   );
 }

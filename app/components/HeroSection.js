@@ -197,20 +197,7 @@ const HeroSection = () => {
           <a href="#" className={styles.socialIcon} aria-label="WhatsApp"><FaWhatsapp /></a>
         </div>
         
-        <div className={styles.destinations}>
-          <button className={styles.destinationButton}>
-            <span>Nueva Zelanda</span>
-            <span>Planear viaje →</span>
-          </button>
-          <button className={styles.destinationButton}>
-            <span>Indonesia</span>
-            <span>Planear viaje →</span>
-          </button>
-          <button className={styles.destinationButton}>
-            <span>Argentina</span>
-            <span>Planear viaje →</span>
-          </button>
-        </div>
+        
       </div>
     </section>
   );

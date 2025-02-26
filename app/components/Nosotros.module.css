@@ -19,6 +19,7 @@
   bottom: 0;
   background: rgba(0, 0, 0, 0.4);
   z-index: 1;
+  
 }
 
 .container {
@@ -115,24 +116,104 @@
   font-weight: 500;
 }
 
+@media (max-width: 1200px) {
+  .container {
+    max-width: 960px;
+    gap: 40px;
+  }
+
+  .contentCard h2 {
+    font-size: 2.2rem;
+  }
+
+  .contentCard h3 {
+    font-size: 1.3rem;
+  }
+}
+
 @media (max-width: 968px) {
+  .nosotrosSection {
+    padding: 60px 0;
+  }
+
   .container {
     flex-direction: column;
     text-align: center;
+    gap: 30px;
   }
 
   .imageContainer {
     width: 100%;
-    margin-bottom: 40px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .contentCard {
+    width: 100%;
+    padding: 30px;
   }
 
   .statsGrid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .statCard h4 {
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 640px) {
+  .nosotrosSection {
+    padding: 40px 0;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .contentCard {
+    padding: 25px;
+  }
+
+  .contentCard h2 {
+    font-size: 1.8rem;
+  }
+
+  .contentCard h3 {
+    font-size: 1.2rem;
+  }
+
+  .contentCard p {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
   .statsGrid {
     grid-template-columns: 1fr;
+    gap: 12px;
+    margin-top: 25px;
+  }
+
+  .statCard {
+    padding: 15px;
+  }
+
+  .statCard h4 {
+    font-size: 1.8rem;
+  }
+
+  .statCard p {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .contentCard h2 {
+    font-size: 1.6rem;
+  }
+
+  .contentCard h3 {
+    font-size: 1.1rem;
   }
 } 

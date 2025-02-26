@@ -38,8 +38,14 @@ const Nosotros = () => {
             height={800}
             className={styles.aboutImage}
             quality={100}
-            sizes="100vw"
-            style={{ objectFit: 'cover', objectPosition: 'center' }}
+            sizes="(max-width: 968px) 100vw, (max-width: 1200px) 45vw, 600px"
+            style={{ 
+              width: '100%',
+              height: 'auto',
+              maxHeight: '800px',
+              objectFit: 'cover', 
+              objectPosition: 'center' 
+            }}
           />
         </div>
 

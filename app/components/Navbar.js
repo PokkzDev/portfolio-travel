@@ -1,7 +1,10 @@
 'use client';
+import { useState } from 'react';
 import styles from './Navbar.module.css';
 
 export default function Navbar() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -10,11 +13,18 @@ export default function Navbar() {
         block: 'start',
       });
     }
+    setIsMenuOpen(false);
   };
 
   return (
     <nav className={styles.navbar}>
-      <div className={styles.navLinks}>
+      <div className={styles.mobileMenuButton} onClick={() => setIsMenuOpen(!isMenuOpen)}>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      
+      <div className={`${styles.navLinks} ${isMenuOpen ? styles.active : ''}`}>
         <button 
           onClick={() => scrollToSection('hero')} 
           className={styles.navLink}

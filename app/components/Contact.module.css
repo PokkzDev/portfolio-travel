@@ -21,8 +21,6 @@
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.4);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
 }
 
 .container {
@@ -174,13 +172,23 @@
   align-self: flex-start;
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
+  width: 100%;
 }
 
-.submitButton:hover {
+.submitButton:hover:not(:disabled) {
   background: rgba(0, 0, 0, 0.5);
   border-color: rgba(255, 255, 255, 0.5);
   transform: translateY(-2px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.submitButton:disabled {
+  background: rgba(0, 0, 0, 0.2);
+  border-color: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 /* Custom Scrollbar */
@@ -214,6 +222,12 @@
     padding-bottom: 2rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
+
+  .submitButton {
+    align-self: center;
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 @media (max-width: 600px) {
@@ -228,4 +242,35 @@
   .contactContainer {
     padding: 2rem;
   }
+}
+
+.statusMessage {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+.success {
+  background: rgba(30, 126, 52, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(195, 230, 203, 0.3);
+}
+
+.error {
+  background: rgba(114, 28, 36, 0.2);
+  color: #ffffff;
+  border: 1px solid rgba(245, 198, 203, 0.3);
+}
+
+.formGroup input:disabled,
+.formGroup select:disabled,
+.formGroup textarea:disabled {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(255, 255, 255, 0.1);
+  cursor: not-allowed;
+  color: rgba(255, 255, 255, 0.5);
 } 

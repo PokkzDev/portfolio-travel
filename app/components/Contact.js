@@ -12,6 +12,12 @@ const Contact = () => {
     message: ''
   });
 
+  const [submitStatus, setSubmitStatus] = useState({
+    loading: false,
+    success: null,
+    message: ''
+  });
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData(prev => ({
@@ -20,10 +26,49 @@ const Contact = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
+    setSubmitStatus({ loading: true, success: null, message: '' });
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitStatus({
+          loading: false,
+          success: true,
+          message: data.message
+        });
+        // Clear form on success
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          tourInterest: '',
+          message: ''
+        });
+      } else {
+        setSubmitStatus({
+          loading: false,
+          success: false,
+          message: data.message || 'Error al enviar el formulario'
+        });
+      }
+    } catch (error) {
+      setSubmitStatus({
+        loading: false,
+        success: false,
+        message: 'Error de conexión. Por favor, inténtalo de nuevo.'
+      });
+    }
   };
 
   const tourOptions = [
@@ -60,6 +105,12 @@ const Contact = () => {
           </div>
 
           <form className={styles.contactForm} onSubmit={handleSubmit}>
+            {submitStatus.message && (
+              <div className={`${styles.statusMessage} ${submitStatus.success ? styles.success : styles.error}`}>
+                {submitStatus.message}
+              </div>
+            )}
+
             <div className={styles.formGroup}>
               <input
                 type="text"
@@ -68,6 +119,7 @@ const Contact = () => {
                 onChange={handleChange}
                 placeholder="Nombre Completo"
                 required
+                disabled={submitStatus.loading}
               />
             </div>
 
@@ -80,6 +132,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Correo Electrónico"
                   required
+                  disabled={submitStatus.loading}
                 />
               </div>
               <div className={styles.formGroup}>
@@ -90,6 +143,7 @@ const Contact = () => {
                   onChange={handleChange}
                   placeholder="Teléfono"
                   required
+                  disabled={submitStatus.loading}
                 />
               </div>
             </div>
@@ -100,6 +154,7 @@ const Contact = () => {
                 value={formData.tourInterest}
                 onChange={handleChange}
                 required
+                disabled={submitStatus.loading}
               >
                 <option value="">Selecciona un Tour de Interés</option>
                 {tourOptions.map(tour => (
@@ -116,11 +171,16 @@ const Contact = () => {
                 placeholder="Tu Mensaje"
                 rows="4"
                 required
+                disabled={submitStatus.loading}
               ></textarea>
             </div>
 
-            <button type="submit" className={styles.submitButton}>
-              Enviar Mensaje
+            <button 
+              type="submit" 
+              className={styles.submitButton}
+              disabled={submitStatus.loading}
+            >
+              {submitStatus.loading ? 'Enviando...' : 'Enviar Mensaje'}
             </button>
           </form>
         </div>
