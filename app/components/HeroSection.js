@@ -27,22 +27,12 @@ const HeroSection = () => {
     'CREA MOMENTOS INOLVIDABLES'
   ];
 
-  // Preload images
+  // Track loaded images using Next.js Image onLoad
   useEffect(() => {
-    let loadedCount = 0;
-    const totalImages = images.length;
-    
-    images.forEach(src => {
-      const img = new window.Image();
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === totalImages) {
-          setImagesLoaded(true);
-        }
-      };
-      img.src = `/images/${src}`;
-    });
-  }, [images]);
+    // Set loaded after a brief delay to allow Next.js Image to initialize
+    const timer = setTimeout(() => setImagesLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Function to handle transitions
   const triggerTransition = useCallback((newIndex) => {
@@ -101,10 +91,12 @@ const HeroSection = () => {
                 src={`/images/${images[currentImage]}`}
                 alt={titles[currentImage]}
                 fill
-                priority
-                quality={100}
+                priority={currentImage === 0}
+                loading={currentImage === 0 ? undefined : 'eager'}
+                quality={80}
                 sizes="100vw"
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
+                onLoad={() => !imagesLoaded && setImagesLoaded(true)}
               />
             </div>
             
@@ -127,8 +119,8 @@ const HeroSection = () => {
                   src={`/images/${images[nextImage]}`}
                   alt={titles[nextImage]}
                   fill
-                  priority
-                  quality={100}
+                  loading="eager"
+                  quality={80}
                   sizes="100vw"
                   style={{ objectFit: 'cover', objectPosition: 'center' }}
                 />

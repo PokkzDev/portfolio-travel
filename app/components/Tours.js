@@ -53,6 +53,8 @@ const Tours = () => {
                 fill
                 className={styles.mainImage}
                 priority
+                quality={80}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 60vw, 700px"
               />
             </div>
             
@@ -84,6 +86,9 @@ const Tours = () => {
                     alt={tour.title}
                     fill
                     className={styles.thumbnailImg}
+                    loading="lazy"
+                    quality={60}
+                    sizes="(max-width: 768px) 33vw, 150px"
                   />
                 </div>
                 <h4 className={styles.thumbnailTitle}>{tour.title}</h4>
